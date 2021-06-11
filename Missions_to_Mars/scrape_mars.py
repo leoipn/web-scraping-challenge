@@ -56,7 +56,7 @@ def scrape_info():
     df = tables[0]
     df.columns=['Mars-Earth Comparison', 'Mars', 'Earth']
     df.drop(0, inplace=True)
-    html_content = df.to_html()
+    html_content = [df.columns.values.tolist()] + df.values.tolist()
 
     ##################################### Mars Hemispheres ###################################################
     # URL of page to be scraped
