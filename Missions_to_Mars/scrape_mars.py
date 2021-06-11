@@ -82,7 +82,7 @@ def scrape_info():
         html = browser.html
         soup = BeautifulSoup(html, 'html.parser')
         downloads = soup.find('div', class_='downloads')
-        img = downloads.find('img', class_='thumb')['src']
+        img = downloads.ul.li.find('a')['href']
         print(img)
 
         element["title"] = title

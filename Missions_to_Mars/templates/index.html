@@ -7,6 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>The Mars Volta</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/styles.css">
 </head>
 
 <body>
@@ -23,13 +24,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col col-lg-6">
+            <div class="col col-lg-8">
                 <h2>Featured Mars Image</h2>
                 <p><img src="{{ mars.featured_image_url }}" alt="featured_imaged"></p>
             </div>
-            <div class="col col-lg-6">
+            <div class="col col-lg-4">
                 <h3>Mars Facts</h3>
-                <table class="table table-striped">
+                <table class="table table-sm table-striped table-bordered">
                     {%for facts in mars.mars_facts%}
                         <tr>
                             {%for fact in facts%}
@@ -41,6 +42,23 @@
                     {%endfor%}
                 </table>
             </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <h2>Mars Hemispheres</h2>
+            </div>
+        </div>
+        <div class="row">
+            {%for hemphs in mars.hemisphere_images_urls%}
+                    <div class="col col-lg-3">
+                        <div class="card" style="border: solid; border-color: darkgray;">
+                            <img src="{{hemphs.get("img_url")}}" class="card-img-top center imgpad" alt="..." style="width: 32rem;">
+                            <div class="card-body pad">
+                                <h3 class="card-text text-left">{{hemphs.get("title")}}</h3>
+                            </div>
+                        </div>
+                    </div>
+            {%endfor%}
         </div>
     </div>
   </div>
